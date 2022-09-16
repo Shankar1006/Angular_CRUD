@@ -1,0 +1,70 @@
+<!--Navbar-->
+<nav class="navbar navbar-light shadow rounded-4">
+    <div class="container-fluid">
+        <h2 class="ms-3 mt-2">CRUD Assignment</h2>
+        <div class="d-flex p-2 pe-2">
+            <button class="btn btn-success col-auto"data-bs-toggle="modal" data-bs-target="#modal" (click)="clickaddperson()">Add Person</button>
+        </div>
+    </div>
+</nav>
+
+
+<!--Card-->
+<div class="row">
+    <div class="container col-5 ms-5 mt-5 me-3 shadow float-start" *ngFor="let per of personData" >
+        <div class="card row flex-row-reverse justify-content-center">
+            <img class="col-5 card-img-end img-fluid pt-3" src="../../assets/images/{{per.profile}}" alt="Profile Picture">
+            <div class="col-7 card-body" >                          <!--string interpolation-->
+                <p class="card-text"><b>Name:</b>
+                    <button 
+                    (click)="onEdit(per)"
+                    class="btn border-0 mb-1" 
+                    data-bs-toggle="modal"
+                    data-bs-target="#modal">
+                        {{per.name | titlecase}}
+                    </button>
+                </p>
+                <p class="card-text"><b>Email:</b> {{per.email}} </p>
+                <p class="card-text"><b>Age:</b> {{per.age | age }} </p>
+                <p class="card-text"><b>Country:</b> {{per.country | uppercase}} </p>
+                <button (click)="deletePerson(per)" class="btn btn-danger">Delete</button>  
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="modal" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
+<div class="modal-dialog">
+    <div class="modal-content">
+    <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Add person details</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+    </div>
+    <div class="modal-body">
+        <form [formGroup]="personForm">
+            <label for="name" class="form-label">Name</label>
+            <input type="text" formControlName="name" class="form-control" required id="name">
+
+            <label for="email" class="form-label">Email</label>
+            <input type="email" formControlName="email" class="form-control" required id="email">
+
+            <div class="mb-2 mt-1">
+                <label for="profile" class="form-label">Upload Profile Picture</label>
+                <input class="form-control" type="file" id="profile" #fileInput>
+            </div>
+            
+            <label for="age" class="form-label">Date of Birth</label>
+            <input type="date"formControlName="age" class="form-control" required id="age">
+
+            <label for="country" class="form-label">Country</label>
+            <input type="text" formControlName="country" class="form-control" required id="country">
+        </form>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="addPerson()" *ngIf="showAdd">Add</button> 
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal"(click)="updatePerson()" *ngIf="showUpdate">Update</button>
+    </div>
+    </div>
+</div>
+</div>

@@ -1,0 +1,21 @@
+body{
+    background-color:bisque;
+}
+img {
+    padding-bottom: 10px;
+    height: 250px;
+    border-radius: 50px;
+    width: 250px;
+}
+.card{
+    background-color:rgb(188, 247, 247);
+}
+.card:hover{
+    background-color: rgb(66, 249, 249);
+}
+h2{
+    color:rgb(255, 0, 0);
+}
+.navbar{
+    background-color:bisque;
+}

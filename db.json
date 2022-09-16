@@ -1,0 +1,44 @@
+{
+  "posts": [
+    {
+      "id": 14,
+      "name": "sha",
+      "email": "s",
+      "age": "2018-06-01",
+      "country": "India",
+      "profile": "download (4).jpg"
+    },
+    {
+      "id": 15,
+      "name": "Iron man",
+      "email": "t@io.com",
+      "age": "1999-06-10",
+      "country": "India",
+      "profile": "images (3).jpg"
+    },
+    {
+      "id": 16,
+      "name": "scarlet",
+      "email": "scarlet@gmail.com",
+      "age": "1900-10-10",
+      "country": "usa",
+      "profile": "download (2).jpg"
+    },
+    {
+      "id": 17,
+      "name": "girl",
+      "email": "girl@gmail.com",
+      "age": "1994-10-10",
+      "country": "aus",
+      "profile": "images (1).jpg"
+    },
+    {
+      "id": 18,
+      "name": "thor",
+      "email": "contact@waiin.com",
+      "age": "0001-06-10",
+      "country": "uk",
+      "profile": "download (1).jpg"
+    }
+  ]
+}
