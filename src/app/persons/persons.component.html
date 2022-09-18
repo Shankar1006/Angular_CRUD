@@ -11,10 +11,12 @@
 
 <!--Card-->
 <div class="row">
-    <div class="container col-5 ms-5 mt-5 me-3 shadow float-start" *ngFor="let per of personData" >
-        <div class="card row flex-row-reverse justify-content-center">
-            <img class="col-5 card-img-end img-fluid pt-3" src="../../assets/images/{{per.profile}}" alt="Profile Picture">
-            <div class="col-7 card-body" >                          <!--string interpolation-->
+    <div class="container col-5 ms-5 mt-5 me-3 shadow-lg float-start" *ngFor="let per of personData" >
+        <div class="card row flex-row-reverse justify-content-center shadow-lg rounded-3">
+            <img class="col-5 card-img-end img-fluid pt-3"
+                src="../../assets/images/{{per.profile}}"
+                alt="Profile Picture">
+            <div class="col-7 card-body" >                               <!--string interpolation-->
                 <p class="card-text"><b>Name:</b>
                     <button 
                     (click)="onEdit(per)"
@@ -44,10 +46,10 @@
     <div class="modal-body">
         <form [formGroup]="personForm">
             <label for="name" class="form-label">Name</label>
-            <input type="text" formControlName="name" class="form-control" required id="name">
+            <input type="text" formControlName="name" class="form-control" id="name">
 
             <label for="email" class="form-label">Email</label>
-            <input type="email" formControlName="email" class="form-control" required id="email">
+            <input type="email" formControlName="email" class="form-control" id="email">
 
             <div class="mb-2 mt-1">
                 <label for="profile" class="form-label">Upload Profile Picture</label>
@@ -55,15 +57,16 @@
             </div>
             
             <label for="age" class="form-label">Date of Birth</label>
-            <input type="date"formControlName="age" class="form-control" required id="age">
+            <input type="date" formControlName="age" class="form-control" id="age">
 
             <label for="country" class="form-label">Country</label>
-            <input type="text" formControlName="country" class="form-control" required id="country">
+            <input type="text" formControlName="country" class="form-control" id="country">
+
         </form>
     </div>
     <div class="modal-footer">
-        <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="addPerson()" *ngIf="showAdd">Add</button> 
-        <button type="button" class="btn btn-primary" data-bs-dismiss="modal"(click)="updatePerson()" *ngIf="showUpdate">Update</button>
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="addPerson()" *ngIf="showAdd" [disabled]="!personForm.valid" >Add</button> 
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal"(click)="updatePerson()" *ngIf="showUpdate" [disabled]="!personForm.valid">Update</button>
     </div>
     </div>
 </div>

@@ -12,29 +12,17 @@ export class PersonService {
 
   getPersons(){
     return this.http.get<Person>(this.baseUrl)
-    .pipe(map((res:any)=>{
-      return res;
-    }));
   }
 
   postPerson(person:Person){
     return this.http.post<Person>(this.baseUrl,person)
-    .pipe(map((res:any)=>{
-      return res;
-    }));
   }
 
   deletePerson(id: string){
     return this.http.delete<any>(this.baseUrl + '/'+id)
-    .pipe(map((res:any)=>{
-      return res;
-    }));
   }
   updatePerson(person:Person,id:number){
     return this.http.put<Person>(this.baseUrl+'/'+id,person)
-    .pipe(map((res:any)=>{
-      return res;
-    }));
   }
 
 }

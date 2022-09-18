@@ -2,10 +2,10 @@
   "posts": [
     {
       "id": 14,
-      "name": "sha",
-      "email": "s",
-      "age": "2018-06-01",
-      "country": "India",
+      "name": "black widow",
+      "email": "widow@gmai",
+      "age": "1997-06-01",
+      "country": "uk",
       "profile": "download (4).jpg"
     },
     {
@@ -29,8 +29,8 @@
       "name": "girl",
       "email": "girl@gmail.com",
       "age": "1994-10-10",
-      "country": "aus",
-      "profile": "images (1).jpg"
+      "country": "usa",
+      "profile": "images.jpg"
     },
     {
       "id": 18,
@@ -39,6 +39,30 @@
       "age": "0001-06-10",
       "country": "uk",
       "profile": "download (1).jpg"
+    },
+    {
+      "id": 20,
+      "name": "she",
+      "email": "t@io.com",
+      "age": "1600-05-10",
+      "country": "Australia",
+      "profile": "images.jpg"
+    },
+    {
+      "id": 25,
+      "name": "hulk",
+      "email": "hulk@gmail.com",
+      "age": "1960-05-10",
+      "country": "Germany",
+      "profile": "download.jpg"
+    },
+    {
+      "id": 26,
+      "name": "wonder",
+      "email": "wonder@gmai",
+      "age": "2001-12-10",
+      "country": "australia",
+      "profile": "download (3).jpg"
     }
   ]
 }

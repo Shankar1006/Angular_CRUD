@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import{FormBuilder, FormGroup, FormControl} from '@angular/forms';
+import{FormBuilder, FormGroup, FormControl, Validators} from '@angular/forms';
 import { Person } from 'src/app/modal/person.modal';
 import { PersonService } from '../service/person.service';
 
@@ -16,7 +16,8 @@ export class PersonsComponent implements OnInit {
   personObj : Person = new Person();                    //To store data recieved from json server
   personData :any;                                      //initialising personData for getting it //get method
   showAdd !: boolean;                    
-  showUpdate !: boolean
+  showUpdate !: boolean;
+
   constructor(private formbuilder: FormBuilder,
     private personService: PersonService
   ) { 
@@ -25,11 +26,12 @@ export class PersonsComponent implements OnInit {
 
   ngOnInit(): void {
     this.personForm=this.formbuilder.group({
-      name : [''],
-      email : [''],
-      age : [''],
-      country :[''],
+      name : ['', Validators.required],                       //validators
+      email : ['',[Validators.required, Validators.email]],
+      age : ['',Validators.required],
+      country :['',Validators.required],
     });
+
     this.getAllPerson();                               // for getting persons on page refreshing              
   }
 
@@ -38,7 +40,7 @@ export class PersonsComponent implements OnInit {
     this.personObj.email=this.personForm.value.email;
     this.personObj.age=this.personForm.value.age;
     this.personObj.country=this.personForm.value.country;
-    this.personObj.profile=this.fileInput.nativeElement.files[0]?.name;         
+    this.personObj.profile=this.fileInput.nativeElement.files[0]?.name;
 
     this.personService.postPerson(this.personObj)
     .subscribe((res)=>{
